@@ -34,6 +34,7 @@ public class Main {
 public void extract (List<Person> abstractPeople, GetFirstName abstractWhat){
         for (Person person : abstractPeople){
             List<Person> byFirstName = new ArrayList<>();
+            //person.get...
 
         }
 
