@@ -1,4 +1,4 @@
 public interface PersonalInfoExtractor {
 
-    String get (Person p);
+    String getInfo (Person p);
 }

@@ -12,32 +12,32 @@ public class Main {
 
 Если не знаете как, Подсказка 1 на след. странице
  */
+        List<Person> list = new ArrayList<>();
+        list.add(new Person("John", "Sommer", 33, "john.sommer@gmail.com"));
+        list.add(new Person("Michael", "Winter", 44, "michael.winter@gmail.com"));
+        list.add(new Person("Anna", "Morgen", 55, "anna.morgen@gmail.com"));
 
-        List<Person> personList = new ArrayList<>();
-        personList.add(new Person("John", "Sommer", 33, "john.sommer@gmail.com"));
-        personList.add(new Person("Michael", "Winter", 44, "michael.winter@gmail.com"));
-        personList.add(new Person("Anna", "Morgen", 55, "anna.morgen@gmail.com"));
+        System.out.println(list);
 
-        System.out.println(personList);
+        List<String> byName = getInfo(list, new GetFirstName());
+        System.out.println(byName);
 
-        for (Person person : personList){
-            System.out.println(person.getFirstName());
-        }
+        List<String> bylastName = getInfo(list, new GetLastName());
+        System.out.println(bylastName);
 
-        for (Person person: personList){
-            System.out.println(person.getLastname());
+        List<String> fullInfo = getInfo(list, new GetFullInfo());
+        System.out.println(fullInfo);
 
-        }
 
     }
 
-public void extract (List<Person> abstractPeople, GetFirstName abstractWhat){
-        for (Person person : abstractPeople){
-            List<Person> byFirstName = new ArrayList<>();
-            //person.get...
-
+    public static List<String> getInfo(List<Person> list, PersonalInfoExtractor extractor) {
+        List<String> result = new ArrayList<>();
+        for (Person person : list) {
+            result.add(extractor.getInfo(person));
         }
+        return result;
 
-}
 
+    }
 }
