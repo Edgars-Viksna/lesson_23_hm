@@ -28,6 +28,11 @@ public class Main {
         List<String> fullInfo = getInfo(list, new GetFullInfo());
         System.out.println(fullInfo);
 
+        System.out.println("------ prdicates -----------");
+
+        List<String> fullByAge = getInfo(list, new GetFullInfo(), new PredicateByAge());
+        System.out.println(fullByAge);
+
 
     }
 
@@ -37,7 +42,14 @@ public class Main {
             result.add(extractor.getInfo(person));
         }
         return result;
+    }
 
-
+    public static List<String> getInfo(List<Person> list, PersonalInfoExtractor extractor, PredicatePerson predicate) {
+        List<String> result = new ArrayList<>();
+        for (Person person : list) {
+            if (predicate.test(person))
+                result.add(extractor.getInfo(person));
+        }
+        return result;
     }
 }
