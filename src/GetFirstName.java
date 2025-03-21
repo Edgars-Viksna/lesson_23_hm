@@ -1,4 +1,4 @@
-public class GetFirstName implements PersonalInfoExtractor{
+public class GetFirstName implements PersonalInfoExtractor {
 
 
     @Override

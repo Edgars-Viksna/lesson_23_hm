@@ -13,17 +13,17 @@ public class Main {
 Если не знаете как, Подсказка 1 на след. странице
  */
         List<Person> list = new ArrayList<>();
-        list.add(new Person("John", "Sommer", 15, "john.sommer@gmail.com"));
-        list.add(new Person("Michael", "Winter", 30, "michael.winter@gmail.com"));
-        list.add(new Person("Anna", "Morgen", 40, "anna.morgen@gmail.com"));
+        list.add(new Person("John", "Sonner", 15, "john.sommer@gmail.com"));
+        list.add(new Person("Michael", "Mosonter", 30, "michael.winter@gmail.com"));
+        list.add(new Person("Sonja", "Mergen", 40, "anna.morgen@gmail.com"));
 
         System.out.println(list);
 
         List<String> byName = getInfo(list, new GetFirstName());
         System.out.println(byName);
 
-        List<String> bylastName = getInfo(list, new GetLastName());
-        System.out.println(bylastName);
+        List<String> byLastName = getInfo(list, new GetLastName());
+        System.out.println(byLastName);
 
         List<String> fullInfo = getInfo(list, new GetFullInfo());
         System.out.println(fullInfo);
@@ -36,8 +36,12 @@ public class Main {
         List<String> firstNameByAgeFromTo = getInfo(list, new GetFirstName(), new PredicateByAgeFromTo(35, 50));
         System.out.println(firstNameByAgeFromTo);
 
+        List<String> fullByContains = getInfo(list, new GetFullInfo(), new PredicateNameContains("so"));
+        System.out.println(fullByContains);
+
 
     }
+// ------------- Methods -----------------
 
     public static List<String> getInfo(List<Person> list, PersonalInfoExtractor extractor) {
         List<String> result = new ArrayList<>();

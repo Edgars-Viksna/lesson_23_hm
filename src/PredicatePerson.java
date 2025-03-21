@@ -1,4 +1,4 @@
 public interface PredicatePerson {
 
-    Boolean test (Person person );
+    Boolean test(Person person);
 }
