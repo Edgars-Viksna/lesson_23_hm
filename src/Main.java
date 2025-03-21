@@ -13,9 +13,9 @@ public class Main {
 Если не знаете как, Подсказка 1 на след. странице
  */
         List<Person> list = new ArrayList<>();
-        list.add(new Person("John", "Sommer", 33, "john.sommer@gmail.com"));
-        list.add(new Person("Michael", "Winter", 44, "michael.winter@gmail.com"));
-        list.add(new Person("Anna", "Morgen", 55, "anna.morgen@gmail.com"));
+        list.add(new Person("John", "Sommer", 15, "john.sommer@gmail.com"));
+        list.add(new Person("Michael", "Winter", 30, "michael.winter@gmail.com"));
+        list.add(new Person("Anna", "Morgen", 40, "anna.morgen@gmail.com"));
 
         System.out.println(list);
 
@@ -28,10 +28,13 @@ public class Main {
         List<String> fullInfo = getInfo(list, new GetFullInfo());
         System.out.println(fullInfo);
 
-        System.out.println("------ prdicates -----------");
+        System.out.println("------ predicates -----------");
 
         List<String> fullByAge = getInfo(list, new GetFullInfo(), new PredicateByAge());
         System.out.println(fullByAge);
+
+        List<String> firstNameByAgeFromTo = getInfo(list, new GetFirstName(), new PredicateByAgeFromTo(35, 50));
+        System.out.println(firstNameByAgeFromTo);
 
 
     }
